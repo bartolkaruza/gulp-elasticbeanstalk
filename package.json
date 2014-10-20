@@ -1,0 +1,41 @@
+{
+  "name": "gulp-elasticbeanstalk",
+  "version": "0.1.0",
+  "description": "A plugin for Gulp that creates application versions on Elastic Beanstalk",
+  "keywords": [
+    "gulpplugin",
+    "gulp",
+    "elastic",
+    "beanstalk",
+    "elasticbeanstalk"
+  ],
+  "homepage": "https://github.com/lightmakercanada/gulp-elasticbeanstalk",
+  "bugs": {
+    "url": "https://github.com/lightmakercanada/gulp-elasticbeanstalk/issues"
+  },
+  "author": {
+    "name": "Greg Holland",
+    "url": "https://github.com/gregholland"
+  },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lightmakercanada/gulp-elasticbeanstalk.git"
+  },
+  "dependencies": {
+    "async": "",
+    "event-stream": "*",
+    "gulp-util": "",
+    "aws-sdk": ">=2.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/lightmakercanada/gulp-elasticbeanstalk/blob/master/LICENSE"
+    }
+  ]
+}
