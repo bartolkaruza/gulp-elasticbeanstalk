@@ -8,7 +8,7 @@ var PLUGIN_NAME = 'gulp-elasticbeanstalk';
 
 module.exports = function (awsCreds, params) {
 
-  params = params || {};
+  var params = params || {};
 
   // Configure the SDK
   aws.config.credentials = awsCreds;
