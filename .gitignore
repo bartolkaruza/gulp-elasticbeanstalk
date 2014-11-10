@@ -1,0 +1,31 @@
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_Store
+.netbeans
+nbproject
+.idea
+*.map
+tags
+.vimrc.local
+.vimrc.*.local
+.vagrant
+
+########################
+# node.js / npm
+########################
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules
