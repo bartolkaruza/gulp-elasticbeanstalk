@@ -1,13 +1,13 @@
 'use strict';
 
-var es = require('event-stream');
-var aws = require('aws-sdk');
+var es    = require('event-stream');
+var aws   = require('aws-sdk');
 var gutil = require('gulp-util');
 
 var PLUGIN_NAME = 'gulp-elasticbeanstalk';
 
-module.exports = function (awsCreds, params) {
 
+module.exports = function (awsCreds, params) {
   var params = params || {};
 
   // Configure the SDK
@@ -49,13 +49,13 @@ module.exports = function (awsCreds, params) {
     };
 
     var ebParams = {
-      ApplicationName: params.ApplicationName,
-      VersionLabel: params.VersionLabel,
-      AutoCreateApplication: false,
-      Description: params.Description,
+      ApplicationName       : params.ApplicationName,
+      VersionLabel          : params.VersionLabel,
+      AutoCreateApplication : false,
+      Description           : params.Description,
       SourceBundle: {
-        S3Bucket: params.Bucket,
-        S3Key: params.Key
+        S3Bucket : params.Bucket,
+        S3Key    : params.Key
       }
     };
 
