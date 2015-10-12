@@ -77,7 +77,16 @@ module.exports = function (awsCreds, params) {
           if (err) {
             gutil.log(gutil.colors.red('[FAILED] Could not create EB Version: ' + err.message));
           } else {
-            gutil.log(gutil.colors.green('[SUCCESS] Application version has been created successfully'));
+            eb.updateEnvironment({
+              EnvironmentName: params.env,
+              VersionLabel: params.VersionLabel
+            }, function(err, data) {
+              if(err) {
+                gutil.log(gutil.colors.red('[FAILED] Could not deploy EB Version: ' + err.message));
+              } else {
+                gutil.log(gutil.colors.green('[SUCCESS] Application version has been deployed successfully'));
+              }
+            });
           }
 
         });
