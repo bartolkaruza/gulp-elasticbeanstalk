@@ -11,8 +11,12 @@ module.exports = function (awsCreds, params) {
   var params = params || {};
 
   // Configure the SDK
-  aws.config.credentials = awsCreds;
-  aws.config.update({region: awsCreds.region});
+  if(awsCreds) {
+    aws.config.credentials = awsCreds;
+    aws.config.update({region: awsCreds.region});  
+  } else {
+    aws.config.update({region: params.Region});
+  }
 
   return es.mapSync(function (file) {
 
@@ -73,7 +77,16 @@ module.exports = function (awsCreds, params) {
           if (err) {
             gutil.log(gutil.colors.red('[FAILED] Could not create EB Version: ' + err.message));
           } else {
-            gutil.log(gutil.colors.green('[SUCCESS] Application version has been created successfully'));
+            eb.updateEnvironment({
+              EnvironmentName: params.env,
+              VersionLabel: params.VersionLabel
+            }, function(err, data) {
+              if(err) {
+                gutil.log(gutil.colors.red('[FAILED] Could not deploy EB Version: ' + err.message));
+              } else {
+                gutil.log(gutil.colors.green('[SUCCESS] Application version has been deployed successfully'));
+              }
+            });
           }
 
         });
