@@ -19,7 +19,8 @@ params = {
   Description: 'your-app-description',
   Bucket: 'a-valid-s3-bucket',
   Key: 'the-s3-key',
-  Region: 'the-eb-region'
+  Region: 'the-eb-region',
+  env: 'the-env-to-deploy'
 };
 
 gulp.src('./bla.zip')
