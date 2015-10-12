@@ -11,8 +11,12 @@ module.exports = function (awsCreds, params) {
   var params = params || {};
 
   // Configure the SDK
-  aws.config.credentials = awsCreds;
-  aws.config.update({region: awsCreds.region});
+  if(awsCreds) {
+    aws.config.credentials = awsCreds;
+    aws.config.update({region: awsCreds.region});  
+  } else {
+    aws.config.update({region: params.Region});
+  }
 
   return es.mapSync(function (file) {
 
