@@ -19,7 +19,7 @@ module.exports = function (awsCreds, params) {
   }
 
   return es.mapSync(function (file) {
-
+    gutil.log(gutil.colors.green, 'processing: ' + file.name);
     // Verify this is a file
     if (!file.isBuffer()) {
       return file;
